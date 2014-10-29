@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Welcome to Craiglist Jr</h1>
+  <p>Hello, world!</p>
+   <head>
+    
+    <script>
+     $(function() {
+      $( "#tabs" ).tabs();
+     });
+      $(document).ready(function(){
+            $('#1').ready(function(){
+              $.ajax({url:'<%= "/posts/new" %>',success:function(result){
+                $("#tabs-1").html(result);}
+                     });
+            });
+                  $('#2').ready(function(){
+              $.ajax({url:'<%= "/posts" %>',success:function(result){
+                $("#tabs-2").html(result);}
+                     });
+            });
+          });
+    </script>
+  </head>
+  
+  <body>
+ 
+    <div id="tabs">
+      <ul>
+        <li id="1"><a href="#tabs-1">Create New Post</a></li>
+        <li id="2"><a href="#tabs-2">View All Posts</a></li>
+      </ul>
+      <div id="tabs-1">
+      </div>
+      <div id="tabs-2">
+      </div>
+    </div>
+  </body>
+</div>
